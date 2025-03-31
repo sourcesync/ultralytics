@@ -33,5 +33,6 @@ def on_val_end(predictor):
 
 m.add_callback("on_val_end", on_val_end)
 
-m.val( data=YAML_PATH, validator=ultralytics.models.yolo.detect.val.DetectionValidator, batch=BATCH_SIZE)
-
+stats = m.val( data=YAML_PATH, validator=ultralytics.models.yolo.detect.val.DetectionValidator, batch=BATCH_SIZE)
+print("Final speed=", stats.speed)
+print("Final metrics=", stats.results_dict)

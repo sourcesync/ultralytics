@@ -1,1 +1,1 @@
-ultralytics @ git+https://github.com/sourcesync/ultralytics.git@gw/fix_var_names
+ultralytics @ git+https://github.com/sourcesync/ultralytics.git@main
