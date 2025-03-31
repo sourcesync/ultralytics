@@ -21,12 +21,11 @@ else: os.environ["YOLO_VERBOSE"]="False"
 # Initialize YOLO model from weights
 m= YOLO( model=MODEL_PATH)
 
-
 def on_val_end(predictor):
     '''This function will get called after all images are processed'''
     try:
         global computed_metrics, speed
-        print("predictor=", predictor.dt[1].vals)
+        print("predictor=", predictor.profilers['inference].timings)
         computed_metrics = predictor.metrics.results_dict
         speed = predictor.speed
     except:
