@@ -1,0 +1,1 @@
+ultralytics @ git+https://github.com/sourcesync/ultralytics.git@main
