@@ -199,7 +199,12 @@ class BaseValidator:
             Profile(device=self.device),
             Profile(device=self.device),
         )
-        self.dt = dt
+        self.profilers = {\
+            'preprocess': dt[0], 
+            'inference': dt[1], 
+            'loss': dt[2], 
+            'postprocess': dt[3]
+        }
         bar = TQDM(self.dataloader, desc=self.get_desc(), total=len(self.dataloader))
         self.init_metrics(de_parallel(model))
         self.jdict = []  # empty before each val

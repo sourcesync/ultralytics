@@ -41,7 +41,7 @@ class Profile(contextlib.ContextDecorator):
         self.t = t
         self.device = device
         self.cuda = bool(device and str(device).startswith("cuda"))
-        self.vals=[]
+        self.timings=[]
 
     def __enter__(self):
         """Start timing."""
@@ -52,7 +52,7 @@ class Profile(contextlib.ContextDecorator):
         """Stop timing."""
         self.dt = self.time() - self.start  # delta-time
         self.t += self.dt  # accumulate dt
-        self.vals.append(self.t) # remember dt
+        self.timings.append(self.t) # remember dt
 
     def __str__(self):
         """Returns a human-readable string representing the accumulated elapsed time in the profiler."""
