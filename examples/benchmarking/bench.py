@@ -25,7 +25,7 @@ def on_val_end(predictor):
     '''This function will get called after all images are processed'''
     try:
         global computed_metrics, speed
-        print("predictor=", predictor.profilers['inference].timings)
+        print("predictor=", predictor.profilers['inference'].timings)
         computed_metrics = predictor.metrics.results_dict
         speed = predictor.speed
     except:
